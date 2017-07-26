@@ -1,0 +1,38 @@
+﻿@model List<FlagApplication2.Models.ReadingModel>
+@{
+    Layout = null;
+}
+<h1>Reading Information</h1>
+@if (Model != null)
+{
+    <div>
+        <table cellspacing="0"width="50%" border="1">
+            <thead>
+            <tr>
+                <th>
+                    ReadingID
+                    
+                </th>
+                <th>
+                   Reading Name
+                </th>
+            </tr>
+            </thead>
+            <tbody>
+            @foreach (var reading in Model)
+            {
+
+                <tr>
+                    <td align="center">
+                        @reading.ReadingId
+                    </td>
+                    <td align="center">
+                        @reading.ReadingType
+                    </td>
+
+                </tr>
+            }
+            </tbody>
+        </table>
+    </div>
+}

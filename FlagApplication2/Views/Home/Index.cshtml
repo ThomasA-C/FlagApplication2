@@ -1,0 +1,39 @@
+﻿@model ClassLibrary.Reading
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<!DOCTYPE html>
+    <head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    </head>
+    <body>
+        <input type="button" value="InsertRecord" id="btnInsertRecord"/>
+        <input type="button" value="DisplayRecords" id="btnDisplay"/>
+        <div id="divPartial">
+        </div>
+    </body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script src="js/scripts.js"></script>
+    <script type="text/javascript">
+        $(function() {
+            $('btnInsertRecord').click(function (data) {
+                $.post("@Url.Action("InsertReadingDetail", "Home")",
+                    function(data) {
+                        alert('Successfuly inserted!');
+                    });
+            });
+        });
+        $(function() {
+            $('btnDisplay').click(function (data) {
+                $.post("@Url.Action("GetReadingDetails", "Home")",
+                    function(data) {
+                        $('#divPartial').append(data);
+                    })
+                alert("The InsertButton was clicked.");
+            });
+        });
+    </script>
+<html/>
